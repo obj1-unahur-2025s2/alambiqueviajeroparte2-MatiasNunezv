@@ -105,4 +105,53 @@ object moto{
     method puedeFuncionar() = not moto.rapido()
     method desgaste() { }
     method patenteValida() = false
+    method velocidad() = 25
+}
+
+object antiguallaBlindada {
+    var gangsters = 3
+    method puedeFuncionar() = gangsters.even()
+    method rapido() = gangsters > 6
+    method desgaste(){
+        gangsters = gangsters -1
+    }
+    method patenteValida() = chatarra.rapido() 
+    const nombres = ["Mario" , 'Hernan', 'Jose']
+    method nombres() = nombres
+    var velocidad = nombres.map({n => n.size()}).sum()
+    method velocidad() = velocidad
+    method subirGangster(nombre) {
+        gangsters = gangsters + 1
+        nombres.add([nombre])
+    }
+    method bajarGangster(nombre) {
+        gangsters = gangsters - 1
+        nombres.remove([nombre])
+    }
+    method estaGangster(nombre) = nombres.contains([nombre])
+    method trampa() {velocidad = velocidad - 2}
+}
+
+object pierreMovil {
+    var velocidad = 30
+    method velocidad() = velocidad
+    const ruleta = ['si', 'no']
+    method perjudicarCorredor(vehiculo) {
+        if(ruleta.anyOne() == 'si') {
+            velocidad = velocidad - 1
+            vehiculo.trampa()
+        } 
+        else {
+            velocidad = velocidad - 5
+        }
+        
+    }
+}
+
+object locoCar {
+    const vehiculosPosibles = [pierreMovil, antiguallaBlindada, moto]
+    var velocidad = 0
+    method transformarseEnPrimerVehiculo(vehiculo) {
+        velocidad = vehiculo.velocidad()
+    }
 }
