@@ -152,6 +152,5 @@ object locoCar {
     const vehiculosPosibles = [pierreMovil, antiguallaBlindada, moto]
     var velocidad = 0
     method transformarseEnPrimerVehiculo(vehiculo) {
-        velocidad = vehiculo.velocidad()
     }
 }
